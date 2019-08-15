@@ -207,18 +207,33 @@
 # b_sort(nums)
 # print(nums)
 
+# nums = [1,10,10,5,8,99,4]
+# #print(nums)
+# def sel_sort(nums):
+#     for i in range(len(nums)-1):
+#         minpos = i
+#         for j in range(i,len(nums)):
+#             if nums[j] < nums[minpos]:
+#                 minpos = j
+#         temp = nums[minpos]
+#         nums[minpos] = nums[i]
+#         nums[i] = temp
+#         print(nums)
+# sel_sort(nums)
+#print(nums)
+
+
 nums = [1,10,10,5,8,99,4]
 #print(nums)
-def sel_sort(nums):
-    for i in range(len(nums)-1):
-        minpos = i
-        for j in range(i,len(nums)):
-            if nums[j] < nums[minpos]:
-                minpos = j
-        temp = nums[minpos]
-        nums[minpos] = nums[i]
-        nums[i] = temp
-        print(nums)
+def ins_sort(nums):
+    for i in range(1,len(nums)):
+        hole = i
+        value = nums[i]
+        while hole>0 and nums[hole-1] > value:
+            nums[hole] = nums[hole-1]
+            hole -= 1
+        nums[hole] = value
+ins_sort(nums)
+print(nums)
 
-sel_sort(nums)
-#print(nums)
+
