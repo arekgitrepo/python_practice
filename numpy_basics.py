@@ -63,4 +63,14 @@ m3 = zeros([2, 2], int)
 # else:
 #     print("cannot multiply")
 
+import numpy as np
 
+a = np.array([
+    [1,2,3]
+    ,[3,4,5]
+])
+b = a.reshape(3,2)
+#print(b)
+print(a.sum(axis=0))
+a.flat
+print(a)
