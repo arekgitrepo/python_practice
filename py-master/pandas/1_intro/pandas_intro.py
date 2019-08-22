@@ -70,8 +70,5 @@ if __name__=="__main__":
     print("Max temperature is: ",get_max_temperature())
     print ("Days of rain: ", get_days_for_event('Rain'))
     print("Average wind speed is: ", get_average_wind_speed())
-
-
-
-
-
+    nums = ['1', '2', '3', '9']
+    print(dir(nums))

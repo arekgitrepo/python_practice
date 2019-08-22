@@ -43,7 +43,6 @@ print(math.sqrt(25))
 print(nums)
 
 nums_tuple = (1,2,3,4,5)
-
 print(nums_tuple.index(3))
 
 
@@ -53,5 +52,7 @@ print(nums_tuple.index(3))
 #
 # c = int(a) + int(b)
 # print("Answer is %s" %c)
+
+dir(nums)
 
 
