@@ -70,7 +70,7 @@ class QueueNode(object):
             self.tail = self.tail.next
             return data
         else:
-            print("Queue is empty")
+            print("Queuee is empty")
             return None
 
     def iter(self):
