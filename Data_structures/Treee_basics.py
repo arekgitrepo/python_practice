@@ -5,6 +5,7 @@ class Node(object):
         self.left_child = None
         self.right_child = None
 
+from collections import deque
 
 class BinTreee(object):
 
@@ -114,6 +115,50 @@ class BinTreee(object):
             else:
                 current = current.left_child
 
+    ##Depth-First-Traversal
+    #Inorder-Traversal(Left - Root - Right)
+    #Preorder-Traversal(Root - Left - Right)
+    #Postorder-Traversal(Left - Right - Root)
+    def inorder(self, root_node):
+        current = root_node
+        if current is None:
+            return
+        self.inorder(current.left_child)
+        print(current.data)
+        self.inorder(current.right_child)
+
+    def preorder(self, root_node):
+        current = root_node
+        if current is None:
+            return
+        print(current.data)
+        self.preorder(current.left_child)
+        self.preorder(current.right_child)
+
+    def postorder(self, root_node):
+        current = root_node
+        if current is None:
+            return
+        self.postorder(current.left_child)
+        self.postorder(current.right_child)
+        print(current.data)
+
+    #Breadth-First Traversal
+
+    def breadth_first_traversal(self):
+        list_of_nodes = []
+        traversal_queue = deque([self.root_node])
+        while len(traversal_queue) > 0:
+            node=traversal_queue.pop()
+            list_of_nodes.append(node)
+            if node.left_child:
+                traversal_queue.append(node.left_child)
+            if node.right_child:
+                traversal_queue.append(node.right_child)
+
+        return list_of_nodes
+
+
 # n1 = Node(6)
 # n2 = Node(5)
 # n3 = Node(7)
@@ -139,3 +184,6 @@ while n1:
 
 parent,node = bst.get_parent_node(13)
 print(parent.data,node.data)
+
+for n in bst.breadth_first_traversal():
+    print(n.data)
