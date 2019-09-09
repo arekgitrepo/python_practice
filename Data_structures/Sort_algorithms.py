@@ -21,3 +21,20 @@ def selection_sort(input_list):
     return input_list
 input_list = [10,4,14,27,66,88,31,45,64,7,100]
 print(selection_sort(input_list))
+
+
+def insertion_sort(input_list):
+    for i in range(len(input_list)):
+        hole = i
+        value = input_list[i]
+        while hole>0 and input_list[hole-1]>value:
+            input_list[hole]=input_list[hole-1]
+            hole -= 1
+        input_list[hole] = value
+print("*"*20)
+input_list=[10,28,30,4,9,55,72,87,0]
+print(input_list)
+insertion_sort(input_list)
+print(input_list)
+
+
