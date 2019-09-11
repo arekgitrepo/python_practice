@@ -37,4 +37,44 @@ print(input_list)
 insertion_sort(input_list)
 print(input_list)
 
+def merge(left,right,input_list):
+    len_a = len(left)
+    len_b = len(right)
+    i = j = k = 0
+    while i<len_a and j<len_b:
+        if left[i] <= right[j]:
+            input_list[k] = left[i]
+            i = i+1
+        else:
+            input_list[k] = right[j]
+            j = j+1
+        k = k + 1
+    while i<len_a:
+        input_list[k] = left[i]
+        k = k+1
+        i = i+1
+    while j<len_b:
+        input_list[k] = right[j]
+        k = k+1
+        j = j+1
+# input_list=[None]*8
+# merge([1,4,7,9],[3,8,10,15],input_list)
+def merge_sort(input_list):
+    n = len(input_list)
+    if n < 2:
+        return
+    mid = n//2
+    left = [None]*mid
+    right = [None]*(n-mid)
+    for i in range(mid):
+        left[i]=input_list[i]
+    for j in range(mid,n):
+        right[j-mid]=input_list[j]
+    merge_sort(left)
+    merge_sort(right)
+    merge(left,right,input_list)
 
+print("*"*20)
+input_list=[20,3,7,30,14,17,8,2,9]
+merge_sort(input_list)
+print(input_list)
