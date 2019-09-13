@@ -78,3 +78,30 @@ print("*"*20)
 input_list=[20,3,7,30,14,17,8,2,9]
 merge_sort(input_list)
 print(input_list)
+
+
+def quick_sort(input_list,start,end):
+    if start < end:
+        pindex = partition(input_list,start,end)
+        quick_sort(input_list,start,pindex-1)
+        quick_sort(input_list,pindex+1,end)
+
+def partition(input_list,start,end):
+    pivot = input_list[end]
+    pindex = start
+    for i in range(start,end):
+        if input_list[i]<=pivot:
+            temp = input_list[i]
+            input_list[i] = input_list[pindex]
+            input_list[pindex] = temp
+            pindex += 1
+    temp = input_list[pindex]
+    input_list[pindex] = pivot
+    input_list[end] = temp
+    return pindex
+
+print("-"*20)
+input_list=[10,90,3,6,77,1,55,3,7,3,1,99]
+quick_sort(input_list,0,len(input_list)-1)
+print(input_list)
+
